@@ -1,0 +1,7 @@
+https://github.com/lizadaly/blackout (original)
+
+https://github.com/mkremins/blackout (JS version of original)
+
+https://mkremins.github.io/blackout/interactive/ (interactive version hosted online)
+
+Also check - NaNoGenMo for poem generators to build dataset
