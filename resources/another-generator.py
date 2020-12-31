@@ -21,7 +21,8 @@ pattern = [{'POS':  {"IN": ["NOUN", "ADP", "ADJ", "ADV"]} },
            {'POS':  {"IN": ["NOUN", "VERB", "ADJ", "ADV"]} }]
 matcher4.add("FourWords", None, pattern)
 
-doc = nlp(open("data/orwell_1984.txt").read())
+text = '''When I say that I’m an experimental computer poet, what I mean is that I write computer programs that write poems. Part of what I want to do in this talk is offer a new framework for thinking about what it means to write computer programs that write poems. Because usually when we think about computer generated poetry, we think of articles like this where any instance of some human task being automated is met by some story that’s like, “I welcome our robotic X overlords” where I replace X with whatever task is being automated by a computer. Most people when they think of computer poetry think that the task of the computer poet is to recreate with as much fidelity as possible poetry that is written by humans. I have no interest in making poetry that looks like it was written by humans. I think that that’s a plainly boring task that nobody should try to attempt.'''
+doc = nlp(text)
 
 matches2 = matcher2(doc)
 matches3 = matcher3(doc)
@@ -43,6 +44,8 @@ for match_id, start, end in matches2 + matches3 + matches4:
     if syl_count == 7:
         if span.text not in g_7:
             g_7.append(span.text)
+
+print(g_5, g_7)
 
 print("Enter for a new haiku. ^C to quit\n")
 while (True):

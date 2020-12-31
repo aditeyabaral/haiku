@@ -7,12 +7,20 @@ import random
 nlp = spacy.load('en_core_web_sm')
 
 text = '''When I say that I’m an experimental computer poet, what I mean is that I write computer programs that write poems. Part of what I want to do in this talk is offer a new framework for thinking about what it means to write computer programs that write poems. Because usually when we think about computer generated poetry, we think of articles like this where any instance of some human task being automated is met by some story that’s like, “I welcome our robotic X overlords” where I replace X with whatever task is being automated by a computer. Most people when they think of computer poetry think that the task of the computer poet is to recreate with as much fidelity as possible poetry that is written by humans. I have no interest in making poetry that looks like it was written by humans. I think that that’s a plainly boring task that nobody should try to attempt.'''
+text = '''Tracery is a JavaScript library, by GalaxyKate, that uses grammars to generate surprising new text.
+
+It's already been used to generate text in several released games and projects, but we're still discovering what it's for!
+
+Tracery is still a work in progress, and we hope to soon have a code-free, hosted online version, but this tutorial will help you get Tracery working with an existing Javascript project.
+
+This is an interactive tutorial that will teach you the basics of Tracery syntax. For a real project, you'd import the library, create a grammar, and then create new text with mygrammar.flatten('someRule'), with detailed instructions at the GitHub repo.'''
 
 
 def is_plural(word):
     # Special case this since one comes up a lot
     if word['text'] == 'men' or word['text'] == 'women':
         return True
+    # print(word)
     return word['text'][-1] == 's'
 
 
@@ -33,7 +41,9 @@ def starts_with_vowel(word):
 
 def parse_words(text):
     words = [{"text": w.translate(str.maketrans(
-        {a: None for a in string.punctuation}))} for w in nltk.tokenize.word_tokenize(text)]
+        {a: None for a in string.punctuation}))} for w in text.split()]
+    #words = {d for d in words if d["text"] != ""}
+
     # for box in boxes:
     #    word = box.content.strip()
     #    word = word.translate(str.maketrans(
@@ -67,6 +77,7 @@ def find_boxes_for_grammar(words):
 
     for pos in grammar:
         while True:
+            print(word_index)
             word = words[word_index]
             if len(picks) > 0:
                 prev_word = picks[-1]
@@ -103,14 +114,14 @@ def find_boxes_for_grammar(words):
                     pick_this = word['token'].dep_ != 'aux' and pick_this
 
             if 'pos' in word and word['pos'] == pos and pick_this and random.randint(0, 30) == 0:
-                #print("Picking ", word['text'], " ", word['token'].dep_)
+                print("Picking ", word['text'], " ", word['token'].dep_)
                 picks.append(word)
                 prev_pos = pos
                 word_index += 1
                 break
-            print(picks)
 
             word_index += 1
+            print(picks)
     return picks
 
 
