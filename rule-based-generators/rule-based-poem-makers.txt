@@ -11,4 +11,4 @@ human chooses one word, bot chooses the next based on grammer rule learned by ma
 collection of poems by Robert Frost - http://www.gutenberg.org/files/59824/59824-h/59824-h.htm
 
 
-A similar project - https://github.com/kabramow/roboetry
+A similar project - https://github.com/kabramow/roboetry --> test this out
