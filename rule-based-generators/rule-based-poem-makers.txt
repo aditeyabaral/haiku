@@ -6,6 +6,9 @@ https://mkremins.github.io/blackout/interactive/ (interactive version hosted onl
 
 Also check - NaNoGenMo for poem generators to build dataset
 
-https://blackout-poetry-tool.github.io/assets/know_more.pdf - human chooses one word, bot
-chooses the next based on grammer rule learned by markov based n-gram model which uses a
+https://blackout-poetry-tool.github.io/assets/know_more.pdf - 
+human chooses one word, bot chooses the next based on grammer rule learned by markov based n-gram model which uses a
 collection of poems by Robert Frost - http://www.gutenberg.org/files/59824/59824-h/59824-h.htm
+
+
+A similar project - https://github.com/kabramow/roboetry
