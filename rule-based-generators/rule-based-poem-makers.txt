@@ -12,3 +12,8 @@ collection of poems by Robert Frost - http://www.gutenberg.org/files/59824/59824
 
 
 A similar project - https://github.com/kabramow/roboetry --> test this out
+
+https://github.com/strategineer/writerator (CLI for analyzing English language text and 
+generating randomized poetry, such as haikus and poems built in Python)
+
+https://agill.xyz/research (Haiku Generation with Causal Language Modeling)
