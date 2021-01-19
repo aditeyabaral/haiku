@@ -19,3 +19,8 @@ Year : 2018
 Link : https://sci-hub.se/https://ieeexplore.ieee.org/document/8845453
 Year : 2019
 
+6) https://arxiv.org/pdf/1906.08733.pdf
+
+7) https://www.aclweb.org/anthology/W09-2005.pdf
+
+8) https://neuro.cs.ut.ee/wp-content/uploads/2018/02/poetry.pdf
