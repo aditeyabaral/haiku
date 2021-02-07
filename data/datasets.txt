@@ -1,19 +1,32 @@
 POEMS
 
-https://www.kaggle.com/leangab/poe-short-stories-corpuscsv
+1. https://www.kaggle.com/leangab/poe-short-stories-corpuscsv
 
-https://www.kaggle.com/michaelarman/poemsdataset
+2. https://www.kaggle.com/michaelarman/poemsdataset
 
-https://www.kaggle.com/jenlooper/597-poems-by-emily-dickinson
+3. https://www.kaggle.com/jenlooper/597-poems-by-emily-dickinson
 
-https://www.kaggle.com/tgdivy/poetry-foundation-poems
+4. https://www.kaggle.com/tgdivy/poetry-foundation-poems
 
-https://www.kaggle.com/johnhallman/complete-poetryfoundationorg-dataset
+5. https://www.kaggle.com/johnhallman/complete-poetryfoundationorg-dataset
 
-STORIES
+6. https://www.kaggle.com/manishkumar866115/soup-of-poems
 
-https://www.kaggle.com/leangab/poe-short-stories-corpuscsv
+7. https://www.kaggle.com/harunshimanto/poems-categorization-datasets
 
-https://www.kaggle.com/thomaskonstantin/highly-rated-children-books-and-stories
+8. https://www.kaggle.com/harshalgadhe/poem-generation
 
-https://www.kaggle.com/mahendran1/bed-time-stories?select=10.+Haris+luck.txt
+
+Variations for generation - 
+1. Generate all possible forms, for a grammar structure for input text?
+2. Use short poems from dataset to find more grammar structures?
+
+
+---------------------------------------------
+STORIES -- DONT USE
+
+1. https://www.kaggle.com/leangab/poe-short-stories-corpuscsv
+
+2. https://www.kaggle.com/thomaskonstantin/highly-rated-children-books-and-stories
+
+3. https://www.kaggle.com/mahendran1/bed-time-stories?select=10.+Haris+luck.txt

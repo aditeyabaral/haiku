@@ -1,0 +1,8 @@
+baseline: encoder-decoder with biLSTM
+
+types: sequence tagging or translation/summarization
+
+1. With and without fastText embeddings
+2. With and without Attention
+3. CNN in input layer (similar to ELMo?)
+4. Transformer model
