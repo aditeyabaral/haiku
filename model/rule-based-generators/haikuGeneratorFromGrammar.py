@@ -61,17 +61,32 @@ def starts_with_vowel(word):
 
 def find_boxes_for_grammar(boxes):
     words = parse_words(boxes)
+
+    text_vector = [i["text"] for i in words]
+    haiku_vector = [0]*len(text_vector)
+
     # print('parse output', words, '\n')
     # print(len(words))
     grammars = [
         ['DET', 'NOUN', 'VERB', 'NOUN'],
         ['ADJ', 'NOUN', 'VERB', 'NOUN'],
-        ['ADJ', 'NOUN', 'VERB', 'ADV'],
-        ['DET', 'NOUN', 'VERB', 'NOUN', 'CONJ', 'NOUN'],
         ['VERB', 'DET', 'NOUN'],
-        ['ADV', 'VERB', 'NOUN', 'CONJ', 'NOUN']
+        ['ADV', 'VERB', 'NOUN', 'CONJ', 'NOUN'],
+        ['NOUN', 'NOUN', 'NOUN'],
+        ['VERB', 'PROPN', 'DET', 'NOUN', 'NOUN'],
+        ['NOUN', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN'],
+        ['VERB', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN'],
+        ['VERB', 'DET', 'NOUN', 'ADP', 'PROPN', 'NOUN'],
+        ['PROPN', 'PROPN', 'DET', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN'],
+        ['ADJ', 'NOUN', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN'],
+        ['NOUN', 'NOUN', 'DET', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN'],
+        ['ADJ', 'NOUN', 'DET', 'NOUN', 'VERB', 'ADP', 'DET', 'NOUN'],
+        ['PRON', 'VERB', 'AUX', 'VERB', 'SCONJ', 'DET', 'DET', 'NOUN', 'VERB', 'ADP', 'DET', 'DET', 'NOUN'],
+        ['PROPN', 'PROPN', 'DET', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN'],
+        ['NOUN', 'NOUN', 'NOUN', 'VERB', 'ADP', 'DET', 'NOUN']
     ]
     grammar = random.choice(grammars)
+    grammar_index = grammars.index(grammar)
     picks = []
     word_index = 0
     prev_word = None
@@ -120,13 +135,19 @@ def find_boxes_for_grammar(boxes):
 
             if 'pos' in word and word['pos'] == pos and pick_this:
                 #print("Picking ", word['text'], " ", word['token'].dep_)
+                haiku_vector[word_index] = 1
                 picks.append(word)
                 prev_pos = pos
                 word_index += 1
                 break
 
             word_index += 1
-    return [p['text'] for p in picks]
+
+    final_text = [p['text'] for p in picks]
+    if len(final_text) > 2:
+        return grammar_index,final_text, haiku_vector
+    else:
+        return -1,"",[]
 
 def main(argv):
 
@@ -139,22 +160,28 @@ def main(argv):
 
     except:
         print("Create a input text file")
-        print("Usage : python haiku_generator.py in.txt out.txt")
+        print("Usage : python haikuGeneratorFromGrammar.py in.txt out.txt")
         sys.exit(1)
 
+    out_haiku = dict()
+    for _ in range(50):
+        index, out, bitarr = find_boxes_for_grammar(inp)
+        if index == -1:
+            continue
+        out = ' '.join(out).strip().lower()
+        if index not in out_haiku:
+            out_haiku[index] = {out : bitarr}
 
-    unique_haiku = []
-    for i in range(20):
-        out = ' '.join(find_boxes_for_grammar(inp)).strip().lower()
-        if out not in unique_haiku:
-            # print("Haiku = ", out)
-            unique_haiku.append(out)
+    out_haiku = {k:out_haiku[k] for k in sorted(out_haiku)}
+    #print(out_haiku)
+
+    # Output format : dict(grammar_index : dict(haiku, bit_list)) 
 
     f = open(outputfile,"w")
-    f.write(str(unique_haiku))
+    f.write(str(out_haiku))
     f.close()
-    print("Output Generated")
 
+    print("Output Generated")
 
 
 if __name__ == "__main__":

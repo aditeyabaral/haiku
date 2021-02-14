@@ -7,7 +7,7 @@ def main(argv):
 
     try:
         inputfile = argv[1]
-        n = argv[2]
+        n = int(argv[2])
 
     except:
         print("Usage : python top_ngram.py gram_list.csv n(#gram)")
