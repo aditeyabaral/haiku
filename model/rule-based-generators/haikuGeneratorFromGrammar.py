@@ -161,19 +161,8 @@ def find_boxes_for_grammar(boxes):
 
 def generateHaiku(input_poem):
 
-    # try:
-    #     # outputfile = argv[2]
-    #     g = open(inputfile, "r")
-    #     inp = g.read()
-    #     g.close()
-# 
-    # except:
-    #     print("Create a input text file")
-    #     print("Usage : python haikuGeneratorFromGrammar.py in.txt out.txt")
-    #     sys.exit(1)
-
     out_haiku = dict()
-    for _ in range(50):
+    for _ in range(5):
         index, out, bitarr = find_boxes_for_grammar(input_poem)
         if index == -1:
             continue
@@ -182,14 +171,6 @@ def generateHaiku(input_poem):
             out_haiku[index] = {out: bitarr}
 
     out_haiku = {k: out_haiku[k] for k in sorted(out_haiku)}
-
-    # print(out_haiku)
-
-    # Output format : dict(grammar_index : dict(haiku, bit_list))
-
-    # f = open(outputfile,"w")
-    # f.write(str(out_haiku))
-    # f.close()
 
     print("Output Generated")
     return out_haiku
