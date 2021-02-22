@@ -53,8 +53,8 @@ elif file_to_convert == "source5":
     # print(poems)
 
 elif file_to_convert == "source6":
-    df = pd.read_csv("../../data/sources/source6.csv")
-    poems = df["poem_content"].values
+    df = pd.read_csv("../../data/sources/source6.csv",sep='\t',error_bad_lines=False, header=None)
+    poems = df[" poem_content "].values
     poems = list(map(clean, poems))
     cleaned_poems = list()
     for p in poems:
@@ -77,7 +77,7 @@ for ctr, p in enumerate(poems[-1:]):
     haikus.append(result)
 
 print(haikus)
-with open('dataset.json', 'w') as outfile:
+with open(f'{sys.argv[1]}.json', 'w') as outfile:
     json.dump(haikus, outfile)
 
 print("Data Generated")
