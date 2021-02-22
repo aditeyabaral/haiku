@@ -68,12 +68,16 @@ elif file_to_convert == "source8":
 else:
     pass
 
-exit()
+# exit()
 haikus = list()
 total = len(poems)
-for ctr, p in enumerate(poems[-5:]):
+for ctr, p in enumerate(poems[-1:]):
     print(f"{ctr+1}/{total}")
     result = haikuGeneratorFromGrammar.generateHaiku(p)
     haikus.append(result)
 
 print(haikus)
+with open('dataset.json', 'w') as outfile:
+    json.dump(haikus, outfile)
+
+print("Data Generated")
