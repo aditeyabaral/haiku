@@ -151,7 +151,8 @@ def generateHaiku(input_poem):
 
                 if 'pos' in word and word['pos'] == pos and pick_this:
                     #print("Picking ", word['text'], " ", word['token'].dep_)
-                    haiku_vector.append(word_index)  # haiku_vector[word_index] = 1
+                    # haiku_vector[word_index] = 1
+                    haiku_vector.append(word_index)
                     picks.append(word)
                     prev_pos = pos
                     word_index += 1
@@ -177,6 +178,6 @@ def generateHaiku(input_poem):
 
     out_haiku = {k: out_haiku[k] for k in sorted(out_haiku)}
 
-    print("Output Generated")
+    # print("Output Generated")
 
     return out_haiku

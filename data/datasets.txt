@@ -20,6 +20,7 @@ POEMS
 Variations for generation - 
 1. Generate all possible forms, for a grammar structure for input text?
 2. Use short poems from dataset to find more grammar structures?
+3. Text preprocessing?
 
 
 ---------------------------------------------
