@@ -16,6 +16,7 @@ POEMS
 
 8. https://www.kaggle.com/harshalgadhe/poem-generation
 
+9. https://github.com/sballas8/PoetRNN/blob/master/data/haikus.csv <LATER>
 
 Variations for generation - 
 1. Generate all possible forms, for a grammar structure for input text?
