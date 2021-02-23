@@ -48,8 +48,7 @@ elif file_to_convert == "source5":
     poems = list(map(clean, poems))
 
 elif file_to_convert == "source6":
-    df = pd.read_csv("../../data/sources/source6.csv",
-                     sep='\t', error_bad_lines=False, header=None)
+    df = pd.read_csv("../../data/sources/source6.csv", encoding='cp1252')
     poems = df[" poem_content "].values
     poems = list(map(clean, poems))
     cleaned_poems = list()
@@ -59,7 +58,15 @@ elif file_to_convert == "source6":
 
 
 elif file_to_convert == "source7":
-    pass
+    files = Path("../../data/sources/source7/").rglob("**/*")
+    files = [str(f.resolve()) for f in files if f.is_file()]
+    poems = list()
+    for f in files:
+        df = pd.read_csv(f)
+        current_poems = df["Poem"].values
+        poems.extend(current_poems)
+    print(poems)
+    poems = list(map(clean, poems))
 
 elif file_to_convert == "source8":
     pass
