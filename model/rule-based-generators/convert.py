@@ -20,9 +20,10 @@ def clean(text):
 if file_to_convert == 'source1':
     df = pd.read_csv("../../data/sources/source1.csv")
     poems = df["text"].values
+    print(len(poems))
     poems = list(map(clean, poems))
 
-if file_to_convert == 'source2':
+elif file_to_convert == 'source2':
     files = Path("../../data/sources/source2/").rglob("**/*")
     files = [str(f.resolve()) for f in files if f.is_file()]
     poems = list()
@@ -65,8 +66,16 @@ elif file_to_convert == "source7":
         df = pd.read_csv(f)
         current_poems = df["Poem"].values
         poems.extend(current_poems)
-    print(poems)
-    poems = list(map(clean, poems))
+
+    cleaned_poems = list()
+    for ctr, p in enumerate(poems):
+        try:
+            cleaned = clean(p)
+            cleaned_poems.append(cleaned)
+        except:
+            pass
+        
+    poems = cleaned_poems
 
 elif file_to_convert == "source8":
     pass
