@@ -1,0 +1,17 @@
+[
+	For all datasets
+	[
+		For all poems in the dataset
+		{
+			grammarIndex1: {
+				haiku1 : [ List of index of words]
+			}, 
+
+			grammarIndex2: {
+				haiku2 : [ List of index of words]
+			}, 
+
+			poem : "Entire Poem"
+		}
+	]
+]
